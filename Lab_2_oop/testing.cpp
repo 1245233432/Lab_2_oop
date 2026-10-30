@@ -7,6 +7,18 @@
 #include <string>
 #include <fstream>
 #include <cmath>
+#include <sstream>
+
+void plot_density(double x, double nu, double mu, double lam, const std::string& python_path = "python") {
+	std::ostringstream cmd;
+	cmd << "\"" << python_path << "\" plot.py "
+		<< x << " " << nu << " " << mu << " " << lam;
+
+	int ret = std::system(cmd.str().c_str());
+	if (ret != 0) {
+		std::cout << "Ошибка построения графика" << ret << std::endl;
+	}
+}
 
 int testing() {
 	short choice;
@@ -54,6 +66,7 @@ int testing() {
 				<< "; ожидалось: gamma2 = 2.94" << std::endl;
 			std::cout << "P{x в центральном интервале} =  " << h.get_P()
 				<< "; ожидалось: 0.214" << std::endl << std::endl;
+			plot_density(0.0, 0.5, 0.0, 1.0);
 		}
 
 		{
@@ -78,6 +91,7 @@ int testing() {
 				<< "; ожидалось: gamma2 = 1.30" << std::endl;
 			std::cout << "P{x в центральном интервале} =  " << h.get_P()
 				<< "; ожидалось: 0.834" << std::endl << std::endl;
+			plot_density(0.0, 1.5, 0.0, 2.0);
 		}
 
 		{
@@ -103,6 +117,7 @@ int testing() {
 				<< "; ожидалось: gamma2 = 0.04" << std::endl;
 			std::cout << "P{x в центральном интервале} =  " << h.get_P()
 				<< "; ожидалось: 0.997" << std::endl << std::endl;
+			plot_density(2.0, 3.0, 2.0, 2.0);
 		}
 
 		return 1;
@@ -130,6 +145,7 @@ int testing() {
 			std::cout << "Асимметрия gamma1 = " << h.get_asymmetry() << std::endl;
 			std::cout << "Эксцесс gamma2 = " << h.get_excess() << std::endl;
 			std::cout << "P{x в центральном интервале} = " << h.get_P() << std::endl << std::endl;
+			plot_density(x, nu, mu, lam);
 		}
 		catch (const std::exception& e) {
 			std::cout << "Error: " << e.what() << std::endl;
