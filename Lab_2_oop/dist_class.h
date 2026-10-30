@@ -21,6 +21,9 @@ namespace distribution {
 		double Phi(double x) const;
 		double generate_standart() const;
 
+		void update_K_P(); // пересчет K и P при изменении параметров
+		void validate() const; // проверка корректности параметров
+
 	public:
 		Huber();
 		Huber(double nu, double mu, double lam);
