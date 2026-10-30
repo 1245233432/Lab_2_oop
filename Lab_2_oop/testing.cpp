@@ -1,4 +1,4 @@
-#include "dist_class.h"
+п»ї#include "dist_class.h"
 
 #include <iostream>
 #include <ctime>
@@ -11,22 +11,22 @@
 int testing() {
 	short choice;
 	std::cout << std::endl;
-	std::cout << "1. Тест по данным из таблицы к ЛР 1" << std::endl;
-	std::cout << "2. Ввод с клавиатуры" << std::endl;
-	std::cout << "3. Ввод из файла" << std::endl;
-	std::cout << "4. Выход" << std::endl;
+	std::cout << "1. РўРµСЃС‚ РїРѕ РґР°РЅРЅС‹Рј РёР· С‚Р°Р±Р»РёС†С‹ Рє Р›Р  1" << std::endl;
+	std::cout << "2. Р’РІРѕРґ СЃ РєР»Р°РІРёР°С‚СѓСЂС‹" << std::endl;
+	std::cout << "3. Р’РІРѕРґ РёР· С„Р°Р№Р»Р°" << std::endl;
+	std::cout << "4. Р’С‹С…РѕРґ" << std::endl;
 	std::cin >> choice; std::cout << std::endl;
 
 	if (std::cin.fail()) {
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		std::cout << "Неверный ввод" << std::endl;
+		std::cout << "РќРµРІРµСЂРЅС‹Р№ РІРІРѕРґ" << std::endl;
 		return 0;
 	}
 	if (choice < 1 || choice > 4) {
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		std::cout << "Неверный ввод" << std::endl;
+		std::cout << "РќРµРІРµСЂРЅС‹Р№ РІРІРѕРґ" << std::endl;
 		return 0;
 	}
 
@@ -36,73 +36,73 @@ int testing() {
 			distribution::Huber h(0.5, 0.0, 1.0);
 			double x = 0.0;
 
-			std::cout << std::endl << "Обычный тест" << std::endl;
+			std::cout << std::endl << "РћР±С‹С‡РЅС‹Р№ С‚РµСЃС‚" << std::endl;
 			std::cout << "x = " << x << std::endl;
-			std::cout << "Форма nu = " << h.get_nu() << std::endl;
-			std::cout << "Сдвиг mu = " << h.get_mu() << std::endl;
-			std::cout << "Масштаб lambda = " << h.get_lam() << std::endl << std::endl;
+			std::cout << "Р¤РѕСЂРјР° nu = " << h.get_nu() << std::endl;
+			std::cout << "РЎРґРІРёРі mu = " << h.get_mu() << std::endl;
+			std::cout << "РњР°СЃС€С‚Р°Р± lambda = " << h.get_lam() << std::endl << std::endl;
 
-			std::cout << "Плотность f(x) = " << h.get_density(x)
-				<< "; ожидалось: f0 = 0.223" << std::endl;
-			std::cout << "Мат. ожидание M[ksi] = " << h.get_expected_value()
-				<< "; ожидалось: " << h.get_mu() << std::endl;
-			std::cout << "Дисперсия D[ksi] = " << h.get_dispersion()
-				<< "; ожидалось: sigma^2 = 8.08" << std::endl;
-			std::cout << "Асимметрия gamma1 = " << h.get_asymmetry()
-				<< "; ожидалось: gamma1 = 0.0" << std::endl;
-			std::cout << "Эксцесс gamma2 = " << h.get_excess()
-				<< "; ожидалось: gamma2 = 2.94" << std::endl;
-			std::cout << "P{x в центральном интервале} =  " << h.get_P()
-				<< "; ожидалось: 0.214" << std::endl << std::endl;
+			std::cout << "РџР»РѕС‚РЅРѕСЃС‚СЊ f(x) = " << h.get_density(x)
+				<< "; РѕР¶РёРґР°Р»РѕСЃСЊ: f0 = 0.223" << std::endl;
+			std::cout << "РњР°С‚. РѕР¶РёРґР°РЅРёРµ M[ksi] = " << h.get_expected_value()
+				<< "; РѕР¶РёРґР°Р»РѕСЃСЊ: " << h.get_mu() << std::endl;
+			std::cout << "Р”РёСЃРїРµСЂСЃРёСЏ D[ksi] = " << h.get_dispersion()
+				<< "; РѕР¶РёРґР°Р»РѕСЃСЊ: sigma^2 = 8.08" << std::endl;
+			std::cout << "РђСЃРёРјРјРµС‚СЂРёСЏ gamma1 = " << h.get_asymmetry()
+				<< "; РѕР¶РёРґР°Р»РѕСЃСЊ: gamma1 = 0.0" << std::endl;
+			std::cout << "Р­РєСЃС†РµСЃСЃ gamma2 = " << h.get_excess()
+				<< "; РѕР¶РёРґР°Р»РѕСЃСЊ: gamma2 = 2.94" << std::endl;
+			std::cout << "P{x РІ С†РµРЅС‚СЂР°Р»СЊРЅРѕРј РёРЅС‚РµСЂРІР°Р»Рµ} =  " << h.get_P()
+				<< "; РѕР¶РёРґР°Р»РѕСЃСЊ: 0.214" << std::endl << std::endl;
 		}
 
 		{
 			distribution::Huber h(1.5, 0.0, 2.0);
 			double x = 0.0;
 
-			std::cout << "Масштабное преобразование" << std::endl;
+			std::cout << "РњР°СЃС€С‚Р°Р±РЅРѕРµ РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ" << std::endl;
 			std::cout << "x = " << x << std::endl;
-			std::cout << "Форма nu = " << h.get_nu() << std::endl;
-			std::cout << "Сдвиг mu = " << h.get_mu() << std::endl;
-			std::cout << "Масштаб lambda = " << h.get_lam() << std::endl << std::endl;
+			std::cout << "Р¤РѕСЂРјР° nu = " << h.get_nu() << std::endl;
+			std::cout << "РЎРґРІРёРі mu = " << h.get_mu() << std::endl;
+			std::cout << "РњР°СЃС€С‚Р°Р± lambda = " << h.get_lam() << std::endl << std::endl;
 
-			std::cout << "Плотность f(x) = " << h.get_density(x)
-				<< "; ожидалось: f0/lambda = 0.192" << std::endl;
-			std::cout << "Мат. ожидание M[ksi] = " << h.get_expected_value()
-				<< "; ожидалось: " << h.get_mu() << std::endl;
-			std::cout << "Дисперсия D[ksi] = " << h.get_dispersion()
-				<< "; ожидалось: sigma^2 * lambda^2 = 5.24" << std::endl;
-			std::cout << "Асимметрия gamma1 = " << h.get_asymmetry()
-				<< "; ожидалось: gamma1 = 0.0" << std::endl;
-			std::cout << "Эксцесс gamma2 = " << h.get_excess()
-				<< "; ожидалось: gamma2 = 1.30" << std::endl;
-			std::cout << "P{x в центральном интервале} =  " << h.get_P()
-				<< "; ожидалось: 0.834" << std::endl << std::endl;
+			std::cout << "РџР»РѕС‚РЅРѕСЃС‚СЊ f(x) = " << h.get_density(x)
+				<< "; РѕР¶РёРґР°Р»РѕСЃСЊ: f0/lambda = 0.192" << std::endl;
+			std::cout << "РњР°С‚. РѕР¶РёРґР°РЅРёРµ M[ksi] = " << h.get_expected_value()
+				<< "; РѕР¶РёРґР°Р»РѕСЃСЊ: " << h.get_mu() << std::endl;
+			std::cout << "Р”РёСЃРїРµСЂСЃРёСЏ D[ksi] = " << h.get_dispersion()
+				<< "; РѕР¶РёРґР°Р»РѕСЃСЊ: sigma^2 * lambda^2 = 5.24" << std::endl;
+			std::cout << "РђСЃРёРјРјРµС‚СЂРёСЏ gamma1 = " << h.get_asymmetry()
+				<< "; РѕР¶РёРґР°Р»РѕСЃСЊ: gamma1 = 0.0" << std::endl;
+			std::cout << "Р­РєСЃС†РµСЃСЃ gamma2 = " << h.get_excess()
+				<< "; РѕР¶РёРґР°Р»РѕСЃСЊ: gamma2 = 1.30" << std::endl;
+			std::cout << "P{x РІ С†РµРЅС‚СЂР°Р»СЊРЅРѕРј РёРЅС‚РµСЂРІР°Р»Рµ} =  " << h.get_P()
+				<< "; РѕР¶РёРґР°Р»РѕСЃСЊ: 0.834" << std::endl << std::endl;
 		}
 
 		{
 			distribution::Huber h(3.0, 2.0, 2.0);
 			double x = h.get_mu();
 
-			std::cout << "Сдвиг-масштабное преобразование" << std::endl;
+			std::cout << "РЎРґРІРёРі-РјР°СЃС€С‚Р°Р±РЅРѕРµ РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ" << std::endl;
 			std::cout << "x = mu = " << x << std::endl;
-			std::cout << "Форма nu = " << h.get_nu() << std::endl;
-			std::cout << "Сдвиг mu = " << h.get_mu() << std::endl;
-			std::cout << "Масштаб lambda = " << h.get_lam() << std::endl << std::endl;
+			std::cout << "Р¤РѕСЂРјР° nu = " << h.get_nu() << std::endl;
+			std::cout << "РЎРґРІРёРі mu = " << h.get_mu() << std::endl;
+			std::cout << "РњР°СЃС€С‚Р°Р± lambda = " << h.get_lam() << std::endl << std::endl;
 
 			std::cout << "Results:" << std::endl;
-			std::cout << "Плотность f(x) = " << h.get_density(x)
-				<< "; ожидалось: f0/lambda = 0.1995" << std::endl;
-			std::cout << "Мат. ожидание M[ksi] = " << h.get_expected_value()
-				<< "; ожидалось: " << h.get_mu() << std::endl;
-			std::cout << "Дисперсия D[ksi] = " << h.get_dispersion()
-				<< "; ожидалось: sigma^2 * lambda^2 = 4.00" << std::endl;
-			std::cout << "Асимметрия gamma1 = " << h.get_asymmetry()
-				<< "; ожидалось: gamma1 = 0.0" << std::endl;
-			std::cout << "Эксцесс gamma2 = " << h.get_excess()
-				<< "; ожидалось: gamma2 = 0.04" << std::endl;
-			std::cout << "P{x в центральном интервале} =  " << h.get_P()
-				<< "; ожидалось: 0.997" << std::endl << std::endl;
+			std::cout << "РџР»РѕС‚РЅРѕСЃС‚СЊ f(x) = " << h.get_density(x)
+				<< "; РѕР¶РёРґР°Р»РѕСЃСЊ: f0/lambda = 0.1995" << std::endl;
+			std::cout << "РњР°С‚. РѕР¶РёРґР°РЅРёРµ M[ksi] = " << h.get_expected_value()
+				<< "; РѕР¶РёРґР°Р»РѕСЃСЊ: " << h.get_mu() << std::endl;
+			std::cout << "Р”РёСЃРїРµСЂСЃРёСЏ D[ksi] = " << h.get_dispersion()
+				<< "; РѕР¶РёРґР°Р»РѕСЃСЊ: sigma^2 * lambda^2 = 4.00" << std::endl;
+			std::cout << "РђСЃРёРјРјРµС‚СЂРёСЏ gamma1 = " << h.get_asymmetry()
+				<< "; РѕР¶РёРґР°Р»РѕСЃСЊ: gamma1 = 0.0" << std::endl;
+			std::cout << "Р­РєСЃС†РµСЃСЃ gamma2 = " << h.get_excess()
+				<< "; РѕР¶РёРґР°Р»РѕСЃСЊ: gamma2 = 0.04" << std::endl;
+			std::cout << "P{x РІ С†РµРЅС‚СЂР°Р»СЊРЅРѕРј РёРЅС‚РµСЂРІР°Р»Рµ} =  " << h.get_P()
+				<< "; РѕР¶РёРґР°Р»РѕСЃСЊ: 0.997" << std::endl << std::endl;
 		}
 
 		return 1;
@@ -110,7 +110,7 @@ int testing() {
 	case 2: {
 		double x, nu, mu, lam;
 		std::cout << std::endl;
-		std::cout << "Введите параметры" << std::endl;
+		std::cout << "Р’РІРµРґРёС‚Рµ РїР°СЂР°РјРµС‚СЂС‹" << std::endl;
 		std::cout << "x = ";
 		std::cin >> x;
 		std::cout << "nu = ";
@@ -124,12 +124,12 @@ int testing() {
 			distribution::Huber h(nu, mu, lam);
 
 			std::cout << std::endl << "Result:" << std::endl;
-			std::cout << "Плотность f(x) = " << h.get_density(x) << std::endl;
-			std::cout << "Мат. ожидание M[ksi] = " << h.get_expected_value() << std::endl;
-			std::cout << "Дисперсия D[ksi] = " << h.get_dispersion() << std::endl;
-			std::cout << "Асимметрия gamma1 = " << h.get_asymmetry() << std::endl;
-			std::cout << "Эксцесс gamma2 = " << h.get_excess() << std::endl;
-			std::cout << "P{x в центральном интервале} = " << h.get_P() << std::endl << std::endl;
+			std::cout << "РџР»РѕС‚РЅРѕСЃС‚СЊ f(x) = " << h.get_density(x) << std::endl;
+			std::cout << "РњР°С‚. РѕР¶РёРґР°РЅРёРµ M[ksi] = " << h.get_expected_value() << std::endl;
+			std::cout << "Р”РёСЃРїРµСЂСЃРёСЏ D[ksi] = " << h.get_dispersion() << std::endl;
+			std::cout << "РђСЃРёРјРјРµС‚СЂРёСЏ gamma1 = " << h.get_asymmetry() << std::endl;
+			std::cout << "Р­РєСЃС†РµСЃСЃ gamma2 = " << h.get_excess() << std::endl;
+			std::cout << "P{x РІ С†РµРЅС‚СЂР°Р»СЊРЅРѕРј РёРЅС‚РµСЂРІР°Р»Рµ} = " << h.get_P() << std::endl << std::endl;
 		}
 		catch (const std::exception& e) {
 			std::cout << "Error: " << e.what() << std::endl;
@@ -149,26 +149,26 @@ int testing() {
 			std::cout << "lam = " << h1.get_lam() << std::endl;
 
 			h1.save(filename);
-			std::cout << "Параметры записаны в файл p.txt через метод .save(filename) объекта Huber h1()" << std::endl;
+			std::cout << "РџР°СЂР°РјРµС‚СЂС‹ Р·Р°РїРёСЃР°РЅС‹ РІ С„Р°Р№Р» p.txt С‡РµСЂРµР· РјРµС‚РѕРґ .save(filename) РѕР±СЉРµРєС‚Р° Huber h1()" << std::endl;
 
 			distribution::Huber h2;
 			h2.load(filename);
-			std::cout << "Данные из файла p.txt записаны в объект Huber h2() через метод load; геттеры:" << std::endl;
+			std::cout << "Р”Р°РЅРЅС‹Рµ РёР· С„Р°Р№Р»Р° p.txt Р·Р°РїРёСЃР°РЅС‹ РІ РѕР±СЉРµРєС‚ Huber h2() С‡РµСЂРµР· РјРµС‚РѕРґ load; РіРµС‚С‚РµСЂС‹:" << std::endl;
 			std::cout << "nu = " << h2.get_nu() << std::endl;
 			std::cout << "mu = " << h2.get_mu() << std::endl;
 			std::cout << "lam = " << h2.get_lam() << std::endl;
 
 			distribution::Huber h3(filename);
-			std::cout << "Данные из файла p.txt записаны в объект Huber h3() через конструктор Huber(filename); геттеры:" << std::endl;
+			std::cout << "Р”Р°РЅРЅС‹Рµ РёР· С„Р°Р№Р»Р° p.txt Р·Р°РїРёСЃР°РЅС‹ РІ РѕР±СЉРµРєС‚ Huber h3() С‡РµСЂРµР· РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Huber(filename); РіРµС‚С‚РµСЂС‹:" << std::endl;
 			std::cout << "nu = " << h3.get_nu() << std::endl;
 			std::cout << "mu = " << h3.get_mu() << std::endl;
 			std::cout << "lam = " << h3.get_lam() << std::endl;
 
-			// проверка, что характеристики совпадают для разных конструкторов объекта класса Huber
-			std::cout << "Константа K и вероятность P" << std::endl;
-			std::cout << std::endl << "Конструктор Huber(): k = " << h1.get_K() << ", P = " << h1.get_P() << std::endl;
-			std::cout << "Конструктор Huber(double nu, double mu, double lam): k = " << h2.get_K() << ", P = " << h2.get_P() << std::endl;
-			std::cout << "Конструктор Huber(const std::string& filename): k = " << h3.get_K() << ", P = " << h3.get_P() << std::endl;
+			// РїСЂРѕРІРµСЂРєР°, С‡С‚Рѕ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё СЃРѕРІРїР°РґР°СЋС‚ РґР»СЏ СЂР°Р·РЅС‹С… РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂРѕРІ РѕР±СЉРµРєС‚Р° РєР»Р°СЃСЃР° Huber
+			std::cout << "РљРѕРЅСЃС‚Р°РЅС‚Р° K Рё РІРµСЂРѕСЏС‚РЅРѕСЃС‚СЊ P" << std::endl;
+			std::cout << std::endl << "РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Huber(): k = " << h1.get_K() << ", P = " << h1.get_P() << std::endl;
+			std::cout << "РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Huber(double nu, double mu, double lam): k = " << h2.get_K() << ", P = " << h2.get_P() << std::endl;
+			std::cout << "РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Huber(const std::string& filename): k = " << h3.get_K() << ", P = " << h3.get_P() << std::endl;
 		}
 		catch (const std::exception& e) {
 			std::cout << "Error during persistence test: " << e.what() << std::endl;
@@ -190,7 +190,7 @@ int testing() {
 int main() {
 	setlocale(LC_ALL, "rus");
 
-	srand(static_cast<unsigned int>(std::time(nullptr))); // для того, чтобы метод get_random_value() всякий раз генерировал разные числа
+	srand(static_cast<unsigned int>(std::time(nullptr))); // РґР»СЏ С‚РѕРіРѕ, С‡С‚РѕР±С‹ РјРµС‚РѕРґ get_random_value() РІСЃСЏРєРёР№ СЂР°Р· РіРµРЅРµСЂРёСЂРѕРІР°Р» СЂР°Р·РЅС‹Рµ С‡РёСЃР»Р°
 	bool flag = false;
 
 	while (!flag) {
