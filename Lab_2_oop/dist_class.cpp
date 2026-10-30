@@ -97,7 +97,12 @@ namespace distribution {
 	}
 
 	void Huber::set_params(double nu, double mu, double lam) {
-		validate();
+		if (nu <= 0.0) {
+			throw std::invalid_argument("Nu должен быть больше 0");
+		}
+		if (lam <= 0.0) {
+			throw std::invalid_argument("Lambda должен быть больше 0");
+		}
 		this->nu = nu;
 		this->mu = mu;
 		this->lam = lam;
