@@ -43,7 +43,7 @@ namespace distribution {
 		double get_excess() const;
 		double get_random_value() const; // моделирование тоже тут
 
-		void save(const std::string& filename) const; // персистентность
+		void save(const std::string& filename) const; // персистентность, т.е. единый формат файлов 
 		void load(const std::string& filename);
 	};
 }
